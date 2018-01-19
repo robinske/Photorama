@@ -48,7 +48,7 @@ struct FlickrAPI {
     }
     
     static var interestingPhotosURL: URL {
-        return flickrURL(endpoint: .interestingPhotos, parameters: ["extras": "url_h,date_taken"])
+        return flickrURL(endpoint: .interestingPhotos, parameters: ["extras": "url_c,date_taken"])
     }
     
     static func photos(fromJSON data: Data,
@@ -66,6 +66,8 @@ struct FlickrAPI {
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
                 if let photo = photo(fromJSON: photoJSON, into: context) {
+                    // look up photo to see if it's already there first
+                    
                     finalPhotos.append(photo)
                 }
             }
@@ -85,10 +87,22 @@ struct FlickrAPI {
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
             let dateString = json["datetaken"] as? String,
-            let photoURLString = json["url_h"] as? String,
+            let photoURLString = json["url_c"] as? String,
             let url = URL(string: photoURLString),
             let dateTaken = dateFormatter.date(from: dateString) else {
                 return nil
+        }
+        
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        let predicate = NSPredicate(format: "\(#keyPath(Photo.photoID)) == \(photoID)")
+        fetchRequest.predicate = predicate
+        
+        var fetchedPhotos: [Photo]?
+        context.performAndWait {
+            fetchedPhotos = try? fetchRequest.execute()
+        }
+        if let existingPhoto = fetchedPhotos?.first {
+            return existingPhoto
         }
         
         var photo: Photo!

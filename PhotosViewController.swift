@@ -7,20 +7,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
     var store: PhotoStore!
     let photoDataSource = PhotoDataSource()
     
-    private func fetchPhotos() {
-        store.fetchInterestingPhotos { (photosResult) -> Void in
-            switch photosResult {
-            case let .success(photos):
-                print("Successfully found \(photos.count) photos.")
-                self.photoDataSource.photos = photos
-            case let .failure(error):
-                print("Error fetching interesting photos: \(error)")
-                self.photoDataSource.photos.removeAll()
-            }
-            self.collectionView.reloadSections(IndexSet(integer: 0))
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = photoDataSource.photos[indexPath.row]
         
@@ -45,7 +31,11 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = photoDataSource
         collectionView.delegate = self
         
-        fetchPhotos()
+        updateDataSource()
+        
+        store.fetchInterestingPhotos { (photosResult) -> Void in
+            self.updateDataSource()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +50,20 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
+    private func updateDataSource() {
+        store.fetchAllPhotos {
+            (photosResult) in
+            
+            switch photosResult {
+            case let .success(photos):
+                self.photoDataSource.photos = photos
+            case .failure:
+                self.photoDataSource.photos.removeAll()
+            }
+            self.collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
     
