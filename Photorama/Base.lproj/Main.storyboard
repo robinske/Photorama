@@ -116,7 +116,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kF9-bb-Rq4">
+                    <navigationItem key="navigationItem" title="Tags" id="kF9-bb-Rq4">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="7La-Zj-Ur0">
                             <connections>
                                 <action selector="done:" destination="rFW-Cb-HsM" id="0nO-7O-yJJ"/>
