@@ -83,6 +83,73 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
+        <!--Tags View Controller-->
+        <scene sceneID="Bt6-9Q-b0k">
+            <objects>
+                <tableViewController id="rFW-Cb-HsM" userLabel="Tags View Controller" customClass="TagsViewController" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zEL-go-A4p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="3ar-qG-S1T" style="IBUITableViewCellStyleDefault" id="Atn-jo-w8G">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Atn-jo-w8G" id="e9D-lv-lG5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ar-qG-S1T">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rFW-Cb-HsM" id="uh5-ao-JSg"/>
+                            <outlet property="delegate" destination="rFW-Cb-HsM" id="rCi-3Q-XtJ"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="kF9-bb-Rq4">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="7La-Zj-Ur0">
+                            <connections>
+                                <action selector="done:" destination="rFW-Cb-HsM" id="0nO-7O-yJJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vln-cR-RSO">
+                            <connections>
+                                <action selector="addNewTag:" destination="rFW-Cb-HsM" id="JiW-2z-td8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cs-uP-AbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="861"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vKx-Hf-2g5">
+            <objects>
+                <navigationController id="f4y-N5-ffo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BOh-pq-rTV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rFW-Cb-HsM" kind="relationship" relationship="rootViewController" id="Noq-Vl-AqT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Msg-Ra-JJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="860"/>
+        </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="eLA-dz-HGN">
             <objects>
@@ -94,12 +161,28 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4IF-C5-ewv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo4-Yc-LTI">
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="rSQ-Qn-97q"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Tags" id="y6Q-Xg-WAR">
+                                        <connections>
+                                            <segue destination="f4y-N5-ffo" kind="presentation" identifier="showTags" id="Lf7-vq-Nco"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wo4-Yc-LTI" secondAttribute="trailing" id="8PR-SM-kEu"/>
                             <constraint firstItem="4IF-C5-ewv" firstAttribute="leading" secondItem="QsL-vH-yZw" secondAttribute="leading" id="E6O-RJ-2Yo"/>
                             <constraint firstItem="4IF-C5-ewv" firstAttribute="top" secondItem="QsL-vH-yZw" secondAttribute="top" id="QaE-Cu-OwW"/>
                             <constraint firstAttribute="bottom" secondItem="4IF-C5-ewv" secondAttribute="bottom" id="a5w-0p-A2u"/>
+                            <constraint firstItem="wo4-Yc-LTI" firstAttribute="leading" secondItem="QsL-vH-yZw" secondAttribute="leading" id="cKU-Bb-T5L"/>
+                            <constraint firstAttribute="bottom" secondItem="wo4-Yc-LTI" secondAttribute="bottom" id="p5h-3n-ISV"/>
                             <constraint firstAttribute="trailing" secondItem="4IF-C5-ewv" secondAttribute="trailing" id="yER-ga-gd4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a60-p6-TTQ"/>

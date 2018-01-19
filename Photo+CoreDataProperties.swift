@@ -2,7 +2,7 @@
 //  Photo+CoreDataProperties.swift
 //  Photorama
 //
-//  Created by Kelley Robinson on 1/18/18.
+//  Created by Kelley Robinson on 1/19/18.
 //  Copyright © 2018 krobs. All rights reserved.
 //
 //
@@ -21,5 +21,23 @@ extension Photo {
     @NSManaged public var title: String?
     @NSManaged public var dateTaken: NSDate?
     @NSManaged public var remoteURL: NSURL?
+    @NSManaged public var tags: NSSet?
+
+}
+
+// MARK: Generated accessors for tags
+extension Photo {
+
+    @objc(addTagsObject:)
+    @NSManaged public func addToTags(_ value: Tag)
+
+    @objc(removeTagsObject:)
+    @NSManaged public func removeFromTags(_ value: Tag)
+
+    @objc(addTags:)
+    @NSManaged public func addToTags(_ values: NSSet)
+
+    @objc(removeTags:)
+    @NSManaged public func removeFromTags(_ values: NSSet)
 
 }

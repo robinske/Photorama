@@ -22,7 +22,9 @@
 		F3602B8620117E4C00F9934F /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B8520117E4C00F9934F /* PhotoInfoViewController.swift */; };
 		F3602B892011825100F9934F /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3602B872011825100F9934F /* Photorama.xcdatamodeld */; };
 		F3602B8C201183B900F9934F /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B8A201183B900F9934F /* Photo+CoreDataClass.swift */; };
-		F3602B8D201183B900F9934F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B8B201183B900F9934F /* Photo+CoreDataProperties.swift */; };
+		F3602B8F20126C2F00F9934F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B8E20126C2F00F9934F /* Photo+CoreDataProperties.swift */; };
+		F3602B9120126CBB00F9934F /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B9020126CBB00F9934F /* TagsViewController.swift */; };
+		F3602B9320126CF400F9934F /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3602B9220126CF400F9934F /* TagDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +66,9 @@
 		F3602B8520117E4C00F9934F /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
 		F3602B882011825100F9934F /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		F3602B8A201183B900F9934F /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F3602B8B201183B900F9934F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F3602B8E20126C2F00F9934F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F3602B9020126CBB00F9934F /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		F3602B9220126CF400F9934F /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +99,10 @@
 		F3602B3B20112FCB00F9934F = {
 			isa = PBXGroup;
 			children = (
+				F3602B8E20126C2F00F9934F /* Photo+CoreDataProperties.swift */,
+				F3602B9020126CBB00F9934F /* TagsViewController.swift */,
+				F3602B9220126CF400F9934F /* TagDataSource.swift */,
 				F3602B8A201183B900F9934F /* Photo+CoreDataClass.swift */,
-				F3602B8B201183B900F9934F /* Photo+CoreDataProperties.swift */,
 				F3602B7D20116ED800F9934F /* PhotoDataSource.swift */,
 				F3602B7520112FEF00F9934F /* PhotosViewController.swift */,
 				F3602B7F2011715500F9934F /* PhotoCollectionViewCell.swift */,
@@ -287,14 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3602B8C201183B900F9934F /* Photo+CoreDataClass.swift in Sources */,
+				F3602B9320126CF400F9934F /* TagDataSource.swift in Sources */,
 				F3602B78201133A900F9934F /* FlickrAPI.swift in Sources */,
 				F3602B4820112FCB00F9934F /* AppDelegate.swift in Sources */,
 				F3602B7A2011471300F9934F /* PhotoStore.swift in Sources */,
 				F3602B8420117D7500F9934F /* ImageStore.swift in Sources */,
+				F3602B9120126CBB00F9934F /* TagsViewController.swift in Sources */,
 				F3602B7E20116ED800F9934F /* PhotoDataSource.swift in Sources */,
 				F3602B892011825100F9934F /* Photorama.xcdatamodeld in Sources */,
 				F3602B802011715500F9934F /* PhotoCollectionViewCell.swift in Sources */,
-				F3602B8D201183B900F9934F /* Photo+CoreDataProperties.swift in Sources */,
+				F3602B8F20126C2F00F9934F /* Photo+CoreDataProperties.swift in Sources */,
 				F3602B7620112FEF00F9934F /* PhotosViewController.swift in Sources */,
 				F3602B8620117E4C00F9934F /* PhotoInfoViewController.swift in Sources */,
 			);
