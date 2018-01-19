@@ -66,5 +66,4 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             self.collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
-    
 }
